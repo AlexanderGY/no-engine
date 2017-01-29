@@ -1,0 +1,16 @@
+<% include partials/header %>
+<% if (data.length) { %>
+<div class="">
+  <% for(var i = 0;i<data.length;i++) { %>
+    <div class="">
+      <a href="/<%= data[i].link %>/"><h3><%= data[i].title %></h3></a>
+      <p><%= data[i].text %></p>
+    </div>
+  <% } %>
+</div>
+<% } else { %>
+<div class="">
+  Nothing there. Create your first post.
+</div>
+<% } %>
+<% include partials/footer %>

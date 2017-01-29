@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/styles.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <ul>
+          <li><a href="/">Main</a></li>
+          <li><a href="/publish/">Publish</a></li>
+          <%
+            if (current) {
+              if (current.login) { %>
+              <li>Howdy, <%= current.login %></li>
+              <li><a href="/exit/">Exit</a></li>
+            <% } else { %>
+              <li><a href="/login/">Login</a></li>
+            <%
+              }
+            } else { %>
+              <li><a href="/login/">Login</a></li>
+            <% }
+          %>
+        </ul>
+
+      </nav>
+    </header>
+    <main class="main">
