@@ -22,17 +22,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next) {
-  res.locals.current = req.session.current;
-  next();
-});
-app.use('/', routes);
+app.use('/public', express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.use(function(req, res, next) {
   res.locals.current = req.session.current;
   next();
 });
+
+app.use('/', routes);
+
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

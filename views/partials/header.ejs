@@ -2,8 +2,11 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/styles.css' />
+    <link rel='stylesheet' href='/public/styles.css' />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="/node_modules/angular/angular.min.js" charset="utf-8"></script>
+    <script src="/public/app.js" charset="utf-8"></script>
+    <script src="/public/main/main.component.js" charset="utf-8"></script>
   </head>
   <body>
     <header class="header">
@@ -25,7 +28,6 @@
             <% }
           %>
         </ul>
-
       </nav>
     </header>
     <main class="main">

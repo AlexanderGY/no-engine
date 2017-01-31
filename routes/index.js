@@ -8,13 +8,13 @@ let express = require('express'),
 const userSchema = new mongoose.Schema({
   login: String,
   password: String
-})
+});
 
 const postSchema = new mongoose.Schema({
   title: String,
   text: String,
   link: String
-})
+});
 
 let Post = mongoose.model('post', postSchema);
 let User = mongoose.model('user', userSchema);
@@ -23,7 +23,6 @@ mongoose.connect('mongodb://localhost/test');
 
 router
   .get('*', function(req, res, next) {
-    console.log(req.session);
     if (!req.session.current) {
       req.session.current = new Object();
     }
@@ -32,7 +31,7 @@ router
       case '/':
         Post.find({}, function(err, posts) {
           res.render('index', { title: 'Main', data: posts });
-        })
+        });
         break;
       case '/login/':
         res.render('login', { title: 'Login' });
@@ -58,13 +57,13 @@ router
             } else {
               res.status(404).render('error', { title: 'Page not found', message: 'Page not found', error: {status: '404'} });
             }
-          })
+          });
         }
     }
   })
   .post('*', function(req, res, next) {
     if (!req.session.current) {
-      req.session.current = new Object();
+      req.session.current = {};
     }
     let currentRequestUrl = req.originalUrl;
     switch (currentRequestUrl) {
@@ -72,7 +71,7 @@ router
         let user = User(req.body);
         user.save(function(err) {
           res.redirect('/');
-        })
+        });
         break;
       case '/publish/':
         let article = Post({
@@ -82,7 +81,7 @@ router
         });
         article.save(function(err) {
           res.redirect('/');
-        })
+        });
         break;
       case '/login/':
         User.find({login: req.body.login}, function(err, user) {
@@ -90,17 +89,17 @@ router
             if (user[0].password == req.body.password) {
               req.session.current = {
                 login: user[0].login
-              }
+              };
               res.redirect('/');
             }
           } else {
             res.render('login', { title: 'Login', error: 'Login or password doesn`t exist' });
           }
-        })
+        });
         break;
       default:
         res.status(403).send('Error');
     }
-  })
+  });
 
 module.exports = router;
