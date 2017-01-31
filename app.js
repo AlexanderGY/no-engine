@@ -26,10 +26,12 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.use(function(req, res, next) {
+  if (!req.session.current) {
+    req.session.current = {};
+  }
   res.locals.current = req.session.current;
   next();
 });
-
 app.use('/', routes);
 
 app.use(function(req, res, next) {
