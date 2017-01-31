@@ -44,15 +44,13 @@ router
     }
   })
   .get(isPostRegExp, function(req, res, next) {
-    if (req.path.match(isPostRegExp)) {
-      Post.find({link: req.path.replace(/\//g,'')}, function(err, article) {
-        if (article.length) {
-          res.render('post', {title: article[0].title, text: article[0].text});
-        } else {
-          res.status(404).render('error', { title: 'Page not found', message: 'Page not found', error: {status: '404'} });
-        }
-      });
-    }
+    Post.find({link: req.path.replace(/\//g,'')}, function(err, article) {
+      if (article.length) {
+        res.render('post', {title: article[0].title, text: article[0].text});
+      } else {
+        res.status(404).render('error', { title: 'Page not found', message: 'Page not found', error: {status: '404'} });
+      }
+    });
   })
   .post('/', function(req, res, next) {
     Post.find({}, function(err, posts) {
