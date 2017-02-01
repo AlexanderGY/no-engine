@@ -1,0 +1,43 @@
+.header
+  background: #eeeeee
+  margin-bottom: 20px
+  width: 100%
+  box-sizing: border-box
+  &__nav
+    padding: 0 15%
+    box-shadow: 1px 0 10px 0 #212121
+    & li
+      display: block
+      float: left
+      & a
+        padding: 13px 20px 10px 20px
+        display: block
+        color: #2c324c
+        font-weight: 600
+        &:hover
+          background: #cccccc
+  &__sub
+    height: 50vh
+    background: url('./img/header-dummy.jpg')
+    background-size: cover
+    background-position: center center
+.filters
+  position: relative
+  &__block
+    position: absolute
+    top: 50vh
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    width: 240px
+    height: 45px
+    & input
+      width: 200px
+      height: 25px
+      padding: 10px 20px
+    & label
+      position: absolute
+      pointer-events: none
+      top: 15px
+      left: 20px
