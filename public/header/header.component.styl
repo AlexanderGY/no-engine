@@ -1,6 +1,6 @@
 .header
   background: #eeeeee
-  margin-bottom: 20px
+  margin-bottom: 5px
   width: 100%
   box-sizing: border-box
   &__nav
@@ -14,10 +14,16 @@
         display: block
         color: #2c324c
         font-weight: 600
+        cursor: pointer
+        &.header-button--new
+          background: #fb5151
+          color: #ffffff
+          &:hover
+            background: #d03c1c
         &:hover
           background: #cccccc
   &__sub
-    height: 50vh
+    height: 35vh
     background: url('./img/header-dummy.jpg')
     background-size: cover
     background-position: center center
@@ -25,7 +31,7 @@
   position: relative
   &__block
     position: absolute
-    top: 50vh
+    top: 30vh
     left: 0
     right: 0
     bottom: 0

@@ -1,0 +1,19 @@
+<header class="header">
+  <nav class="header__nav nav">
+    <ul class="clearfix">
+      <li><a ui-sref="main">Main</a></li>
+      <li><a class="header-button--new" href="/publish/">Publish</a></li>
+      <li ng-if="$ctrl.settings.isLogined"><a href="/dashboard/">Dashboard</a></li>
+      <li ng-if="$ctrl.settings.isLogined"><a href="/exit/">Exit</a></li>
+      <li ng-if="!$ctrl.settings.isLogined"><a ui-sref="login">Login</a></li>
+    </ul>
+  </nav>
+  <div class="header__sub">
+    <div class="filters">
+      <div class="input__block filters__block filters__block--query">
+        <input id="query" type="text" name="" value="">
+        <label for="query">Your query</label>
+      </div>
+    </div>
+  </div>
+</header>

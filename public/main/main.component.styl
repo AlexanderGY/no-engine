@@ -2,10 +2,33 @@
   width: 100%
   min-height: 100vh
   box-sizing: border-box
+  height: 100%
 .listing
   padding: 0 20px
   margin: 0 15%
+  margin-bottom: 20px
 .element
+  float: left
+  width: 50%
+  box-sizing: border-box
+  opacity: 1
+  transition: 0.2s
+  color: #212121
+  margin-top: 20px
+  &:hover
+    opacity: 0.9
+    transition: 0.2s
   &__img
     width: 180px
     max-width: 180px
+    float: left
+  &__text
+    float: left
+    margin-left: 20px
+  &-text
+    &__title
+      font-size: 1.3em
+      font-weight: 600
+      color: #328ea3
+      &:visited
+        color: #3b4461

@@ -1,7 +1,9 @@
-<div class="listing">
+<div class="listing clearfix">
   <div class="listing__element element" ng-repeat="post in $ctrl.posts">
     <img src="./public/main/img/dummy-image.jpg" alt="{{post.title}}" class="element__img">
-    <a href="/{{post.link}}">{{post.title}}</a>
-    <p>{{post.text}}</p>
+    <div class="element__text">
+      <a class="element-text__title" href="/{{post.link}}">{{post.title}}</a>
+      <p class="element-text__description">{{post.text}}</p>
+    </div>
   </div>
 </div>

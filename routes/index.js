@@ -57,6 +57,13 @@ router
       res.status(200).send(posts);
     });
   })
+  .post('/api/config/get_settings/', function(req, res, next) {
+    if(req.session.current.login) {
+      res.status(200).send({isLogined: true, login: req.session.current.login});
+    } else {
+      res.status(200).send({isLogined: false})
+    }
+  })
   .post('/registration/', function(req, res, next) {
     let user = User(req.body);
     user.save(function(err) {
