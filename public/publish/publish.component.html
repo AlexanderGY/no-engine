@@ -1,13 +1,90 @@
 <div class="publish-block">
-  <form class="form-publish" action="/publish/" method="post">
-    <div class="form-publish__input">
-      <input type="text" name="title">
+  <form class="form-publish clearfix" action="/publish/" method="post">
+
+    <div class="form-publish__left">
+      <h1>New advert</h1>
+      <div class="form-publish__image">
+        <label for="images"></label>
+        <input id="images" type="file" id="images" name="images">
+      </div>
+      <div class="form-publish__textarea">
+        <label for="text">Description</label>
+        <textarea id="text" name="text" rows="8" cols="40"></textarea>
+      </div>
+
+      <div class="form-publish__input">
+        <label for="area">Living area</label>
+        <input id="area" type="text" name="area">
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">Furnished</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">Condition</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">Bathrooms</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">Bedrooms</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">First owner</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__input">
+        <label for="price">Price</label>
+        <input id="price" type="text" name="price">
+      </div>
+      <div class="form-publish__select">
+        <label for="furnished">Building type</label>
+        <select id="furnished" name="furnished">
+          <option value=""></option>
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-publish__sell-options">
+        <div class="">
+          <label for="">Free</label>
+          <input type="radio" name="sell_options" value="0">
+        </div>
+        <div class="">
+          <label for="">Special</label>
+          <input type="radio" name="sell_options" value="1">
+        </div>
+
+      </div>
+      <div class="form-publish__input">
+        <input class="form-publish__button" type="submit" value="Publish">
+      </div>
     </div>
-    <div class="form-publish__textarea">
-      <textarea name="text" rows="8" cols="40"></textarea>
-    </div>
-    <div class="form-publish__input">
-      <input type="submit" value="Publish">
+    <div class="form-publish__map form-publish__right" id="map">
+
     </div>
   </form>
 </div>

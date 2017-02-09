@@ -1,27 +1,56 @@
 .header
   background: #eeeeee
-  margin-bottom: 5px
   width: 100%
   box-sizing: border-box
+  &__share
+    width: 15%
+    height: 40px
+    float: left
+    & .share
+      height: 40px
+      width: 40px
+      float: right
+      display: block
+      cursor: pointer
+      &--fb
+        background: #3B5998
+      &--gp
+        background: #DB4437
+      &--tw
+        background: #1DA1F2
+      &--settings
+        position: relative
+        & i
+          position: absolute
+          top: 8px
+          left: 8px
   &__nav
     padding: 0 15%
-    box-shadow: 1px 0 10px 0 #212121
+    width: 40%
+    float: left
     & li
       display: block
       float: left
+      min-width: 30px
+      position: relative
+      & i
+        font-size: 18px
+        color: #328ea3
+        position: absolute
+        top: 14px
+        left: 0
       & a
-        padding: 13px 20px 10px 20px
+        padding: 13px 20px 8px 20px
         display: block
         color: #2c324c
         font-weight: 600
         cursor: pointer
-        &.header-button--new
-          background: #fb5151
-          color: #ffffff
-          &:hover
-            background: #d03c1c
-        &:hover
-          background: #cccccc
+        &.header-button
+          &--new
+            background: #fb5151
+            color: #ffffff
+            &:hover
+              background: #d03c1c
   &__sub
     height: 35vh
     background: url('./img/header-dummy.jpg')
@@ -38,12 +67,18 @@
     margin: auto
     width: 240px
     height: 45px
+    & .ng-not-empty + label
+        font-size: 0.7em
+        top: 3px
+        transition: 0.2s
     & input
       width: 200px
       height: 25px
-      padding: 10px 20px
+      padding: 10px 20px 5px
+      border-bottom: 1px solid rgba(33, 33, 33, 0.33)
     & label
       position: absolute
       pointer-events: none
-      top: 15px
-      left: 20px
+      top: 12px
+      left: 21px
+      transition: 0.2s

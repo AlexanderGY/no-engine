@@ -1,10 +1,13 @@
 'use strict';
-let express = require('express'),
-    router = express.Router(),
-    isPostRegExp = /\w+/g,
-    bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+let express = require('express');
+let router = express.Router();
+let isPostRegExp = /\w+/g;
+let bodyParser = require('body-parser');
+let mongoose = require('mongoose');
 
+/**
+ * TODO class to external file
+ */
 const userSchema = new mongoose.Schema({
   login: String,
   password: String
@@ -27,20 +30,10 @@ router
   .get('/', function(req, res, next) {
     res.render('index', { title: 'Main' });
   })
-  .get('/login/', function(req, res, next) {
-    res.render('login', { title: 'Login' });
-  })
-  .get('/publish/', function(req, res, next) {
-    if (req.session.current.login) {
-      res.render('publish', { title: 'Publish' });
-    } else {
-      res.redirect('/login/');
-    }
-  })
-  .get('/exit/', function(req, res, next) {
+  .post('/api/exit/', function(req, res, next) {
     if (req.session.current.login) {
       delete req.session.current.login;
-      res.redirect('/');
+      res.status(200).send({error: false, description: 'User log out success'});
     }
   })
   .get(isPostRegExp, function(req, res, next) {
@@ -52,22 +45,28 @@ router
       }
     });
   })
-  .post('/', function(req, res, next) {
+  .post('/api/items/get_items/', function(req, res, next) {
     Post.find({}, function(err, posts) {
-      res.status(200).send(posts);
+      if (!err) {
+        res.status(200).send(posts);
+      }
     });
   })
   .post('/api/config/get_settings/', function(req, res, next) {
     if(req.session.current.login) {
       res.status(200).send({isLogined: true, login: req.session.current.login});
     } else {
-      res.status(200).send({isLogined: false})
+      res.status(200).send({isLogined: false});
     }
   })
-  .post('/registration/', function(req, res, next) {
+  .post('/api/registration/', function(req, res, next) {
     let user = User(req.body);
     user.save(function(err) {
-      res.redirect('/');
+      if (!err) {
+        res.status(200).send({error: false, description: 'User saved'});
+      } else {
+        res.status(200).send({error: true});
+      }
     });
   })
   .post('/publish/', function(req, res, next) {
@@ -77,20 +76,22 @@ router
       link: req.body.title.toLowerCase().replace(/[^\w]/gi, '-')
     });
     article.save(function(err) {
-      res.redirect('/');
+      if (!err) {
+        res.status(200).send({error: false, description: 'Article saved'});
+      } else {
+        res.status(200).send({error: true});
+      }
     });
   })
-  .post('/login/', function(req, res, next) {
+  .post('/api/login/', function(req, res, next) {
     User.find({login: req.body.login}, function(err, user) {
-      if (user.length) {
-        if (user[0].password == req.body.password) {
-          req.session.current = {
-            login: user[0].login
-          };
-          res.redirect('/');
-        }
+      if (user.length && user[0].password == req.body.password) {
+        req.session.current = {
+          login: user[0].login
+        };
+        res.status(200).send({error: false, description: 'User found. Password and username correct'});
       } else {
-        res.render('login', { title: 'Login', error: 'Login or password doesn`t exist' });
+        res.status(200).send({error: true, description: 'Username or password incorrect'});
       }
     });
   });

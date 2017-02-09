@@ -1,0 +1,103 @@
+.publish-block
+  margin: 0 15%
+  padding: 0 20px
+.form-publish
+  &__textarea
+    position: relative
+    & textarea
+      width: 280px
+      border-bottom: 1px solid rgba(33, 33, 33, 0.33)
+      height: 50px
+      padding: 10px 15px 7px
+      margin: 5px 0
+    & label
+      position: absolute
+      color: #212121
+      top: 14px
+      left: 15px
+      pointer-events: none
+  &__input
+    position: relative
+    & input[type="text"]
+      width: 280px
+      padding: 10px 15px 7px
+      border-bottom: 1px solid rgba(33, 33, 33, 0.33)
+      margin: 5px 0
+    & label
+      position: absolute
+      color: #212121
+      top: 14px
+      left: 15px
+      pointer-events: none
+  &__select
+    position: relative
+    & select
+      width: 310px
+      padding: 10px 15px 7px
+      border-bottom: 1px solid rgba(33, 33, 33, 0.33)
+      margin: 5px 0
+      cursor: pointer
+    & label
+      position: absolute
+      color: #212121
+      top: 14px
+      left: 15px
+      pointer-events: none
+  &__sell-options
+    & label
+      float: left
+    & input
+      display: none
+  &__image
+    & label
+      width: 310px
+      cursor: pointer
+      display: block
+      height: 200px
+      margin: 20px 0 5px
+      border: 1px solid rgba(33, 33, 33, 0.33)
+      position: relative
+      &:after
+        content: '+'
+        font-size: 72px
+        font-weight: 900
+        left: 0
+        right: 0
+        margin: auto
+        top: 45px
+        position: absolute
+        width: 50px
+    & input
+      display: none
+  &__button
+    background: #fb5151
+    padding: 10px 15px 8px 15px
+    color: #fff
+    font-weight: 600
+    cursor: pointer
+    transition: 0.2s
+    margin: 20px 0 5px
+    &:hover
+      background: #d03c1c
+      transition: 0.2s
+  &__right
+    width: 50%
+    height: calc(65vh - 40px)
+    float: left
+  &__left
+    width: 50%
+    float: left
+    padding: 20px
+    box-sizing: border-box
+  &__map
+    position: relative
+    &:after
+      content: url('./img/map-marker-icon.png')
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      margin: auto
+      width: 40px
+      height: 40px

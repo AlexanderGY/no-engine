@@ -1,3 +1,53 @@
 .login-block
-  margin: 20px 15%
-  padding: 0 20px
+  margin: 0 15%
+  box-sizing: border-box
+.form
+  &-additional
+    background: #fb5151
+    height: 300px
+    margin: 0 1% 20px
+  &-signup
+    float: left
+    width: 48%
+    min-height: 300px
+    box-sizing: border-box
+    & p
+      width: 200px
+    &__input
+      position: relative
+      &--error
+        & label
+          color: #d03c1c !important
+      & .ng-not-empty + label
+          font-size: 0.7em
+          top: 4px
+          transition: 0.2s
+      input
+        padding: 10px 15px 7px
+        margin: 5px 0
+        border-bottom: 1px solid rgba(33, 33, 33, 0.33)
+      label
+        position: absolute
+        color: #212121
+        top: 14px
+        left: 15px
+    & .form-signup__button
+        background: #fb5151
+        padding: 10px 15px 8px 15px
+        color: #fff
+        font-weight: 600
+        cursor: pointer
+        transition: 0.2s
+        margin: 5px 0
+        &:hover
+          background: #d03c1c
+          transition: 0.2s
+  &-login
+    background: #dad9e3
+    padding: 20px
+    margin: 1%
+  &-register
+    background: #373f4e
+    padding: 20px
+    margin: 1%
+    color: #ffffff

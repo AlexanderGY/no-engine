@@ -1,18 +1,28 @@
 angular.module('dashboardApp')
 .component('headerComponent', {
   templateUrl: './public/header/header.component.html',
-  controller: ['$http', HeaderController]
+  controller: ['$http', '$scope', HeaderController]
 });
 
-function HeaderController($http) {
+function HeaderController($http, $scope) {
   var self = this;
-  $http({
-    method: 'POST',
-    url: '/api/config/get_settings/'
-  })
-  .then(function(res) {
-    if(res.status === 200) {
-      self.settings = res.data;
-    }
+
+  self.httpRequestHeader = function() {
+    $http({
+      method: 'POST',
+      url: '/api/config/get_settings/'
+    })
+    .then(function(res) {
+      if(res.status === 200) {
+        self.settings = res.data;
+      }
+    });
+  };
+
+  $scope.$on('userLogOut', function() {
+    self.httpRequestHeader();
   });
+
+  self.httpRequestHeader();
+
 }

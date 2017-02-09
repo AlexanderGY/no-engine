@@ -8,8 +8,26 @@ angular.module('dashboardApp', ['ui.router'])
     .state('login', {
       url: '/login',
       component: 'loginComponent'
+    })
+    .state('publish', {
+      url: '/publish',
+      component: 'publishComponent'
+    })
+    .state('dashboard', {
+      url: '/dashboard',
+      component: 'dashboardComponent'
+    })
+    .state('balance', {
+      url: '/balance',
+      component: 'balanceComponent'
+    })
+    .state('settings', {
+      url: '/settings',
+      component: 'settingsComponent'
+    })
+    .state('messenger', {
+      url: '/messenger',
+      component: 'messengerComponent'
     });
-})
-.run(function($state) {
-  // $state.go('main');
+    $urlRouterProvider.otherwise('/');
 });

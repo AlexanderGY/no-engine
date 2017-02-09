@@ -1,17 +1,38 @@
 <header class="header">
-  <nav class="header__nav nav">
-    <ul class="clearfix">
-      <li><a ui-sref="main">Main</a></li>
-      <li><a class="header-button--new" href="/publish/">Publish</a></li>
-      <li ng-if="$ctrl.settings.isLogined"><a href="/dashboard/">Dashboard</a></li>
-      <li ng-if="$ctrl.settings.isLogined"><a href="/exit/">Exit</a></li>
-      <li ng-if="!$ctrl.settings.isLogined"><a ui-sref="login">Login</a></li>
-    </ul>
-  </nav>
+  <div class="clearfix">
+    <nav class="header__nav nav">
+      <ul class="clearfix">
+        <li><a ui-sref="main">Main</a></li>
+        <li ng-if="!$ctrl.settings.isLogined"><a class="header-button--new" ui-sref="login">Publish</a></li>
+        <li ng-if="$ctrl.settings.isLogined"><a class="header-button--new" ui-sref="publish">Publish</a></li>
+        <li ng-if="!$ctrl.settings.isLogined"><a ui-sref="login">Login</a></li>
+
+        <li ng-if="$ctrl.settings.isLogined"><a ui-sref="dashboard">My adverts</a></li>
+        <li ng-if="$ctrl.settings.isLogined"><a class="header-button--messenger" ui-sref="messenger"><i ng-if="true" class="material-icons">chat_bubble_outline</i><i ng-if="false" class="material-icons">chat_bubble</i><span>0 messages</span></a></li>
+        
+        <li ng-if="$ctrl.settings.isLogined"><a ui-sref="balance"><i class="material-icons">monetization_on</i>Balance: <span>0</span></a></li>
+      </ul>
+    </nav>
+    <div class="header__share">
+
+      <a href="#" class="share share--fb">
+
+      </a>
+      <a href="#" class="share share--gp">
+
+      </a>
+      <a href="#" class="share share--tw">
+
+      </a>
+      <a ui-sref="settings" class="share share--settings">
+        <i class="material-icons">settings</i>
+      </a>
+    </div>
+  </div>
   <div class="header__sub">
     <div class="filters">
       <div class="input__block filters__block filters__block--query">
-        <input id="query" type="text" name="" value="">
+        <input id="query" ng-model="query" type="text" name="" value="">
         <label for="query">Your query</label>
       </div>
     </div>
