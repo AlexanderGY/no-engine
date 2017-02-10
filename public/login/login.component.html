@@ -14,7 +14,7 @@
         <label ng-if="$ctrl.error.signin" for="password_in" ng-bind="$ctrl.error.signin"></label>
       </div>
       <div class="form-login__input">
-        <button ng-click="$ctrl.signInRequest()" class="form-signup__button" type="button">Sign in</button>
+        <button ng-disabled="!$ctrl.signin.password || !$ctrl.signin.login" ng-click="$ctrl.signInRequest()" class="form-signup__button" type="button">Sign in</button>
       </div>
     </form>
 
@@ -31,7 +31,7 @@
         <label for="password_up">Password</label>
       </div>
       <div class="form-registration__input">
-        <button ng-click="$ctrl.signUpRequest()" class="form-signup__button" type="button">Sign up</button>
+        <button ng-disabled="!$ctrl.signup.password || !$ctrl.signup.login" ng-click="$ctrl.signUpRequest()" class="form-signup__button" type="button">Sign up</button>
       </div>
     </form>
   </div>

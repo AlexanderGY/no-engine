@@ -16,7 +16,7 @@ const paths = {
 	build: __dirname + '/public'
 };
 
-gulp.task('stylus', ['clean'], function() {
+gulp.task('stylus', ['js'], function() {
 	return gulp.src(paths.src + '/**/*.styl')
 		.pipe(stylus({compress: false}))
 		.pipe(autoprefixer({
@@ -25,7 +25,13 @@ gulp.task('stylus', ['clean'], function() {
 		}))
 		.pipe(concatCss('styles.css'))
 		.pipe(cssmin())
-		.pipe(gulp.dest(paths.build))
+		.pipe(gulp.dest(paths.build));
+});
+
+gulp.task('js', ['clean'], function() {
+  return gulp.src([paths.src + '/**/*.js', '!' + paths.src + '/script.js'])
+    .pipe(concat('script.js'))
+		.pipe(gulp.dest('./public/'));
 });
 
 gulp.task('clean', function() {
@@ -33,5 +39,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', ['stylus'], function() {
-	gulp.watch([paths.src + '/**/*.styl', paths.src + '/*.styl'], ['stylus']);
+	gulp.watch([paths.src + '/**/*.js', paths.src + '/**/*.styl', paths.src + '/*.styl', '!' + paths.src + '/script.js'], ['stylus']);
 });

@@ -1,4 +1,4 @@
-angular.module('dashboardApp', ['ui.router'])
+angular.module('dashboardApp')
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
     .state('main', {

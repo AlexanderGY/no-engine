@@ -1,5 +1,26 @@
 .settings
   &-header
+    width: 60%
+    margin: 0 15%
+    padding: 0 20px
+    &__controls
+      width: 70%
+      min-height: 20px
+      float: left
     &__exit
+      width: 30%
+      float: left
       & button
+        background: #fb5151
+        padding: 10px 15px 8px 15px
+        color: #fff
+        font-weight: 600
         cursor: pointer
+        transition: 0.2s
+        margin: 5px 0
+        &:hover
+          background: #d03c1c
+          transition: 0.2s
+        &:disabled
+          background: #999999
+          cursor: default

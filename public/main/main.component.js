@@ -7,12 +7,6 @@ angular.module('dashboardApp')
 function MainController($http) {
   var self = this;
 
-  /**
-   * [openItemDemand description]
-   * @param  {String} url   url from ng repeat render
-   * @param  {Event} event event of click
-   * @return {[type]}       [description]
-   */
   self.openItemDemand = function(url, event) {
     console.log(event);
     event.preventDefault();

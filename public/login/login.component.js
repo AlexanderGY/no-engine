@@ -22,7 +22,7 @@ function LoginController($http, $state, $scope) {
           self.error.signin = res.data.description;
         } else {
           $state.go('main');
-          $scope.$emit('userLogOut');
+          $scope.$emit('user:login');
         }
       });
     } else {
