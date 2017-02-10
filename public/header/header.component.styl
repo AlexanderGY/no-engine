@@ -1,15 +1,18 @@
 .header
-  background: #eeeeee
   width: 100%
   box-sizing: border-box
+  &-map
+    width: 100%
+    height: 100%
   &__share
-    width: 15%
-    height: 40px
-    float: left
+    width: 40px
+    position: fixed
+    right: 0
+    bottom: 25px
+    z-index: 4
     & .share
       height: 40px
       width: 40px
-      float: right
       display: block
       cursor: pointer
       &--fb
@@ -20,59 +23,70 @@
         background: #1DA1F2
       &--settings
         position: relative
-        & i
-          position: absolute
-          top: 8px
-          left: 8px
+        padding: 8px
+        color: #212121
   &__nav
     padding: 0 15%
-    width: 40%
+    width: 70%
+    background: #212121
     float: left
+    position: fixed
+    z-index: 3
     & li
       display: block
       float: left
       min-width: 30px
       position: relative
-      & i
-        font-size: 18px
-        color: #328ea3
-        position: absolute
-        top: 14px
-        left: 0
-      & a
-        padding: 13px 20px 8px 20px
-        display: block
-        color: #2c324c
-        font-weight: 600
-        cursor: pointer
-        &.header-button
-          &--new
+      &.header-button
+        &--new
+          position: absolute
+          right: 15%
+          top: 0
+          z-index: 3
+          & a
             background: #fb5151
             color: #ffffff
             &:hover
               background: #d03c1c
+      & a
+        padding: 13px 20px 8px 20px
+        display: block
+        color: #ffffff
+        cursor: pointer
+
   &__sub
-    height: 35vh
-    background: url('./img/header-dummy.jpg')
+    height: 50vh
     background-size: cover
     background-position: center center
+    position: relative
 .filters
-  position: relative
+  position: absolute
+  width: 500px
+  height: 45px
+  left: 0
+  right: 0
+  bottom: 20px
+  margin: auto
   &__block
-    position: absolute
-    top: 30vh
-    left: 0
-    right: 0
-    bottom: 0
-    margin: auto
-    width: 240px
-    height: 45px
+    float: left
+    position: relative
     & .ng-not-empty + label
         font-size: 0.7em
         top: 3px
         transition: 0.2s
+    &--select
+      & .ng-not-empty + label
+          left: 30px
+    & select
+      width: 120px
+      height: 41px
+      margin-left: 10px
+      cursor: pointer
+      padding: 10px 20px 5px
+      border-bottom: 1px solid rgba(33, 33, 33, 0.33)
     & input
-      width: 200px
+      width: 190px
+      margin-right: 10px
       height: 25px
       padding: 10px 20px 5px
       border-bottom: 1px solid rgba(33, 33, 33, 0.33)

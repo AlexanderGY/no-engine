@@ -13,4 +13,5 @@ function BaseController($scope) {
 
   $scope.$on('user:login', self.updateHeader);
   $scope.$on('user:logout', self.updateHeader);
+  $scope.$on('publish:ready', self.decreaseHeader);
 }

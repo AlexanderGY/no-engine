@@ -44,10 +44,17 @@
       left: 15px
       pointer-events: none
   &__sell-options
-    & label
-      float: left
-    & input
-      display: none
+    & .sell-options
+      & label
+        float: left
+        width: 150px
+        height: 130px
+        background: #212121
+        margin-right: 10px
+        cursor: pointer
+        color: #ffffff
+      & input
+        display: none
   &__image
     & label
       width: 310px
@@ -89,15 +96,3 @@
     float: left
     padding: 20px
     box-sizing: border-box
-  &__map
-    position: relative
-    &:after
-      content: url('./img/map-marker-icon.png')
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      margin: auto
-      width: 40px
-      height: 40px
