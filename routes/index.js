@@ -63,6 +63,9 @@ router
     let user = User(req.body);
     user.save(function(err) {
       if (!err) {
+        req.session.current = {
+          login: req.body.login
+        };
         res.status(200).send({error: false, description: 'User saved'});
       } else {
         res.status(200).send({error: true});

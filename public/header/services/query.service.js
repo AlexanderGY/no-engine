@@ -1,11 +1,11 @@
 angular.module('dashboardApp')
-.service('queryService', function() {
+.service('searchService', function() {
   this.search = {
     query: '',
     type: '',
     city: ''
   };
-  
+
   this.getPrivate = function() {
     return thisIsPrivate;
   };

@@ -18,11 +18,13 @@ function LoginController($http, $state, $scope) {
         data: self.signin
       })
       .then(function(res) {
-        if(res.data.error) {
-          self.error.signin = res.data.description;
-        } else {
-          $state.go('main');
-          $scope.$emit('user:login');
+        if (res.status === 200) {
+          if(res.data.error) {
+            self.error.signin = res.data.description;
+          } else {
+            $state.go('main');
+            $scope.$emit('user:login');
+          }
         }
       });
     } else {
@@ -37,10 +39,13 @@ function LoginController($http, $state, $scope) {
       data: self.signup
     })
     .then(function(res) {
-      if(res.data.error) {
-        self.error.signup = res.data.description;
-      } else {
-
+      if (res.status === 200) {
+        if(res.data.error) {
+          self.error.signup = res.data.description;
+        } else {
+          $state.go('main');
+          $scope.$emit('user:login');
+        }
       }
     });
   };

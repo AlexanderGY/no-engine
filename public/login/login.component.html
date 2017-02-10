@@ -4,12 +4,12 @@
       <h2>Sign in</h2>
       <p>I`m already have a login</p>
       <div class="form-login__input  form-signup__input" ng-class="$ctrl.error.signin ? 'form-signup__input--error' : ' '">
-        <input ng-model="$ctrl.signin.login" id="login_in" type="text" name="login" required="required">
+        <input ng-model="$ctrl.signin.login" id="login_in" type="text" name="login">
         <label ng-if="!$ctrl.error.signin" for="login_in">Login</label>
         <label ng-if="$ctrl.error.signin" for="login_in" ng-bind="$ctrl.error.signin"></label>
       </div>
       <div class="form-login__input  form-signup__input" ng-class="$ctrl.error.signin ? 'form-signup__input--error' : ' '">
-        <input ng-model="$ctrl.signin.password" id="password_in" type="password" name="password" required="required">
+        <input ng-model="$ctrl.signin.password" id="password_in" type="password" name="password">
         <label ng-if="!$ctrl.error.signin" for="password_in">Password</label>
         <label ng-if="$ctrl.error.signin" for="password_in" ng-bind="$ctrl.error.signin"></label>
       </div>
@@ -22,13 +22,15 @@
       <h2>Sign up</h2>
       <p>I`m a new user and want to create new account</p>
       <input type="hidden" name="name" value="">
-      <div class="form-registration__input  form-signup__input">
+      <div class="form-registration__input  form-signup__input" ng-class="$ctrl.error.signup ? 'form-signup__input--error' : ' '">
         <input ng-model="$ctrl.signup.login" id="login_up" type="text" name="login">
-        <label for="login_up">Login</label>
+        <label ng-if="!$ctrl.error.signup" for="login_up">Login</label>
+        <label ng-if="$ctrl.error.signup" for="login_up" ng-bind="$ctrl.error.signup"></label>
       </div>
-      <div class="form-registration__input  form-signup__input">
+      <div class="form-registration__input  form-signup__input" ng-class="$ctrl.error.signup ? 'form-signup__input--error' : ' '">
         <input ng-model="$ctrl.signup.password" id="password_up" type="password" name="password">
-        <label for="password_up">Password</label>
+        <label ng-if="!$ctrl.error.signup" for="password_up">Password</label>
+        <label ng-if="$ctrl.error.signup" for="password_up" ng-bind="$ctrl.error.signup"></label>
       </div>
       <div class="form-registration__input">
         <button ng-disabled="!$ctrl.signup.password || !$ctrl.signup.login" ng-click="$ctrl.signUpRequest()" class="form-signup__button" type="button">Sign up</button>
