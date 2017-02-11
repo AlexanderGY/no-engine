@@ -5,8 +5,4 @@ angular.module('dashboardApp')
     type: '',
     city: ''
   };
-
-  this.getPrivate = function() {
-    return thisIsPrivate;
-  };
 });

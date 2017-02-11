@@ -1,1 +1,1 @@
-angular.module('dashboardApp', ['ui.router']);
+angular.module('dashboardApp', ['ui.router', 'angularFileUpload']);

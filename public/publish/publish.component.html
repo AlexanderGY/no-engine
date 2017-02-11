@@ -1,87 +1,163 @@
-<div class="publish-block" ng-init="$ctrl.addressExist()">
+<div class="publish-block">
   <form class="form-publish clearfix">
     <div class="form-publish__left">
       <div class="form-publish__textarea">
-        <label for="text">Description</label>
-        <textarea id="text" name="text" rows="8" cols="40"></textarea>
+        <textarea id="description" ng-model="$ctrl.form.description"></textarea>
+        <label for="description">Description</label>
+        <div class="input__statistic">
+          <!-- +20% -->
+        </div>
+      </div>
+
+      <div class="form-publish__select">
+        <select id="type" ng-model="$ctrl.form.type">
+          <option value="house">House</option>
+          <option value="area">Area</option>
+          <option value="apartaments">Apartaments</option>
+        </select>
+        <label for="type">Building type</label>
+        <div class="input__statistic">
+          <!-- +20% -->
+        </div>
+      </div>
+
+      <div class="form-publish__select">
+        <select id="city" ng-model="$ctrl.form.city">
+          <option value="london">London</option>
+          <option value="manchester">Manchester</option>
+          <option value="kent">Kent</option>
+        </select>
+        <label for="city">City</label>
+        <div class="input__statistic">
+          <!-- +10% -->
+        </div>
       </div>
 
       <div class="form-publish__input">
+        <input id="address" type="text" ng-model="$ctrl.form.address">
+        <label for="address">Address</label>
+        <div class="input__statistic">
+          <!-- +17% -->
+        </div>
+      </div>
+
+      <div class="form-publish__input input">
+        <input id="area" type="text" ng-model="$ctrl.form.area">
         <label for="area">Living area</label>
-        <input id="area" type="text" name="area">
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">Furnished</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">Condition</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">Bathrooms</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">Bedrooms</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">First owner</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__input">
-        <label for="price">Price</label>
-        <input id="price" type="text" name="price">
-      </div>
-      <div class="form-publish__select">
-        <label for="furnished">Building type</label>
-        <select id="furnished" name="furnished">
-          <option value=""></option>
-          <option value="1">Yes</option>
-          <option value="0">No</option>
-        </select>
-      </div>
-      <div class="form-publish__sell-options clearfix">
-        <div class="sell-options sell-options--">
-          <label for="">Free</label>
-          <input type="radio" name="sell_options" value="0">
+        <div class="input__description">
+          m<sup>2</sup>
         </div>
-        <div class="sell-options sell-options--">
-          <label for="">Special</label>
-          <input type="radio" name="sell_options" value="1">
+        <div class="input__statistic">
+          <!-- +5% -->
         </div>
+      </div>
 
+      <div class="form-publish__select">
+
+        <select id="furnished" ng-model="$ctrl.form.furnished">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <label for="furnished">Furnished</label>
+        <div class="input__statistic">
+          <!-- +6% -->
+        </div>
       </div>
+
+      <div class="form-publish__select">
+        <select id="condition" ng-model="$ctrl.form.condition">
+          <option value="exelent">Exelent</option>
+          <option value="good">Good</option>
+          <option value="average">Average</option>
+          <option value="repair">Need repair</option>
+          <option value="bad">Bad</option>
+        </select>
+        <label for="condition">Condition</label>
+        <div class="input__statistic">
+          <!-- +10% -->
+        </div>
+      </div>
+
+      <div class="form-publish__select">
+        <select id="bathrooms" ng-model="$ctrl.form.bathrooms">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <label for="bathrooms">Bathrooms</label>
+        <div class="input__statistic">
+          <!-- +5% -->
+        </div>
+      </div>
+      <div class="form-publish__select">
+        <select id="bedrooms" ng-model="$ctrl.form.bedrooms">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <label for="bedrooms">Bedrooms</label>
+        <div class="input__statistic">
+          <!-- +12% -->
+        </div>
+      </div>
+
+      <div class="form-publish__select">
+        <select id="first_ownership" ng-model="$ctrl.form.first_ownership">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <label for="first_ownership">First owner</label>
+        <div class="input__statistic">
+          <!-- +5% -->
+        </div>
+      </div>
+
       <div class="form-publish__input">
-        <input class="form-publish__button" type="submit" value="Publish">
+        <input id="price" type="text" ng-model="$ctrl.form.price">
+        <label for="price">Price</label>
+        <div class="input__description">
+          £
+        </div>
+        <div class="input__statistic">
+          <!-- +17% -->
+        </div>
       </div>
+
+
+
+      <div class="form-publish__sell-options clearfix">
+        <input type="hidden" ng-model="$ctrl.form.sell_options" ng-init="$ctrl.form.selloptions='0'">
+        <div class="sell-options sell-options--">
+          <label ng-click="$ctrl.form.sell_options='0'">Free</label>
+        </div>
+        <div class="sell-options sell-options--">
+          <label ng-click="$ctrl.form.sell_options='1'">Special</label>
+        </div>
+      </div>
+
+      <div class="form-publish__input">
+        <button class="form-publish__button" type="button" ng-click="$ctrl.sendForm()">Publish</button>
+      </div>
+
     </div>
+
     <div class="form-publish__right">
+
       <div class="form-publish__image">
-        <label for="images"></label>
-        <input id="images" type="file" id="images" name="images">
+        <input type="file" nv-file-select uploader="$ctrl.uploader"/><br/>
+         <ul>
+             <li ng-repeat="item in $ctrl.uploader.queue">
+                 Name: <span ng-bind="item.file.name"></span><br/>
+                 <button ng-click="item.upload()">upload</button>
+             </li>
+         </ul>
       </div>
+
     </div>
   </form>
 </div>

@@ -33,11 +33,11 @@
     </div>
     <div class="filters">
       <div class="input__block filters__block filters__block--query">
-        <input id="query" ng-model="$ctrl.query" type="text">
+        <input id="query" ng-model="$ctrl.filters.query" type="text">
         <label for="query">Your query</label>
       </div>
       <div class="input__block filters__block filters__block--select">
-        <select class="" ng-model="$ctrl.selectType">
+        <select class="" ng-model="$ctrl.filters.type">
           <option value=""></option>
           <option value="houses">Houses</option>
           <option value="apartaments">Apartaments</option>
@@ -46,13 +46,16 @@
         <label for="query">Type</label>
       </div>
       <div class="input__block filters__block filters__block--select">
-        <select class="" ng-model="$ctrl.selectCity">
+        <select class="" ng-model="$ctrl.filters.city">
           <option value=""></option>
           <option value="houses">Houses</option>
           <option value="apartaments">Apartaments</option>
           <option value="land">Land</option>
         </select>
         <label for="query">City</label>
+      </div>
+      <div class="input__block filters__block filters__block--clear" ng-if="$ctrl.filters.city || $ctrl.filters.query || $ctrl.filters.type">
+        <button type="button" ng-click="$ctrl.clearForm()" name="button">Clear</button>
       </div>
     </div>
   </div>

@@ -7,13 +7,15 @@ const express = require('express'),
    bodyParser = require('body-parser'),
    mongoose = require('mongoose'),
    routes = require('./routes/index'),
+   config = require('./config.json'),
    app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(expressSession({
-  secret: 'Omg'
+  secret: config.expressSecret,
+  name: 'sessionId'
 }));
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

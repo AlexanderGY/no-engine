@@ -1,16 +1,12 @@
 angular.module('dashboardApp')
 .component('mainComponent', {
   templateUrl: './public/main/main.component.html',
-  controller: ['$http', MainController]
+  controller: ['$http', 'searchService', MainController]
 });
 
-function MainController($http) {
+function MainController($http, searchService) {
   var self = this;
-
-  self.openItemDemand = function(url, event) {
-    console.log(event);
-    event.preventDefault();
-  };
+  self.filters = searchService.search;
 
   $http({
     method: 'POST',

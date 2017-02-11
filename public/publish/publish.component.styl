@@ -4,8 +4,13 @@
 .form-publish
   &__textarea
     position: relative
+    & .ng-not-empty + label
+        font-size: 0.7em
+        top: 3px
+        transition: 0.2s
     & textarea
       width: 280px
+      max-width: 280px
       border-bottom: 1px solid rgba(33, 33, 33, 0.33)
       height: 50px
       padding: 10px 15px 7px
@@ -29,8 +34,16 @@
       top: 14px
       left: 15px
       pointer-events: none
+  & .ng-not-empty + label
+      font-size: 0.7em
+      top: 3px
+      transition: 0.2s
   &__select
     position: relative
+    & .ng-not-empty + label
+        font-size: 0.7em
+        top: 3px
+        transition: 0.2s
     & select
       width: 310px
       padding: 10px 15px 7px
@@ -44,6 +57,7 @@
       left: 15px
       pointer-events: none
   &__sell-options
+    margin-top: 20px
     & .sell-options
       & label
         float: left
@@ -74,8 +88,6 @@
         top: 45px
         position: absolute
         width: 50px
-    & input
-      display: none
   &__button
     background: #fb5151
     padding: 10px 15px 8px 15px
@@ -96,3 +108,15 @@
     float: left
     padding: 20px
     box-sizing: border-box
+.input
+  &__description
+    position: absolute
+    left: 280px
+    top: 10px
+    & + .input__statistic
+      left: 320px
+      top: 12px
+  &__statistic
+    position: absolute
+    left: 320px
+    top: 10px

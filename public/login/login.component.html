@@ -21,7 +21,6 @@
     <form class="form-register form-signup">
       <h2>Sign up</h2>
       <p>I`m a new user and want to create new account</p>
-      <input type="hidden" name="name" value="">
       <div class="form-registration__input  form-signup__input" ng-class="$ctrl.error.signup ? 'form-signup__input--error' : ' '">
         <input ng-model="$ctrl.signup.login" id="login_up" type="text" name="login">
         <label ng-if="!$ctrl.error.signup" for="login_up">Login</label>

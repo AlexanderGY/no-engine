@@ -15,9 +15,29 @@ const userSchema = new mongoose.Schema({
 
 const postSchema = new mongoose.Schema({
   title: String,
-  text: String,
+  description: String,
+  type: String,
+  city: String,
+  address: String,
+  area: Number,
+  furnished: Boolean,
+  condition: String,
+  bathrooms: Number,
+  bedrooms: Number,
+  first_owner: Boolean,
+  price: Number,
+  author: String,
   link: String
 });
+
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+String.prototype.linkify = function() {
+  let mask = /[\s,\n]+/g;
+  return this.replace(mask, '-').toLowerCase();
+};
 
 let Post = mongoose.model('post', postSchema);
 let User = mongoose.model('user', userSchema);
@@ -72,19 +92,46 @@ router
       }
     });
   })
-  .post('/publish/', function(req, res, next) {
-    let article = Post({
-      title: req.body.title,
-      text: req.body.text,
-      link: req.body.title.toLowerCase().replace(/[^\w]/gi, '-')
-    });
-    article.save(function(err) {
-      if (!err) {
-        res.status(200).send({error: false, description: 'Article saved'});
-      } else {
-        res.status(200).send({error: true});
+  .post('/api/items/publish/', function(req, res, next) {
+
+    function saveItem(data) {
+      let item = Post(data);
+      item.save(function(err) {
+        if (!err) {
+          res.status(200).send({error: false, description: 'Item saved'});
+        } else {
+          res.status(200).send({error: true});
+        }
+      });
+    }
+
+    function generateTitle(data) {
+      var title = '';
+      if (data.furnished) {
+        title = 'furnished';
       }
-    });
+      if (data.bedrooms) {
+        title = title + ' ' + data.bedrooms + 'th BR';
+      }
+      if(data.type) {
+        title = title + ' ' + data.type;
+      }
+      if (data.city && data.type) {
+        title = title + ' in ' + data.city.capitalize();
+      }
+      return title.capitalize();
+    }
+
+    if(req.session.current.login) {
+      req.body.title = generateTitle(req.body);
+      req.body.link = req.body.title.linkify();
+      req.body.author = req.session.current.login;
+      saveItem(req.body);
+    } else {
+      res.status(401).send({error: true});
+    }
+
+
   })
   .post('/api/login/', function(req, res, next) {
     User.find({login: req.body.login}, function(err, user) {

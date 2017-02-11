@@ -1,14 +1,27 @@
 <div class="settings">
-  <div class="settings-header">
+
+  <div class="settings-header clearfix">
     <div class="settings-header__controls">
-      Some control features will be here
+      1
     </div>
     <div class="settings-header__exit">
       <button type="button" ng-click="$ctrl.removeSession()">Log out</button>
     </div>
-
   </div>
+
   <div class="settings-main">
-
+    <div class="form-publish__input">
+      <input id="email" type="text" ng-model="$ctrl.form.email">
+      <label for="email">Email</label>
+    </div>
+    <div class="form-publish__input">
+      <input id="name" type="text" ng-model="$ctrl.form.name">
+      <label for="name">Name</label>
+    </div>
+    <div class="form-publish__input">
+      <input id="phone" type="text" ng-model="$ctrl.form.phone">
+      <label for="phone">Phone</label>
+    </div>
   </div>
+
 </div>

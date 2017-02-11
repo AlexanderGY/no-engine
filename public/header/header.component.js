@@ -1,11 +1,24 @@
 angular.module('dashboardApp')
 .component('headerComponent', {
   templateUrl: './public/header/header.component.html',
-  controller: ['$http', '$scope', HeaderController]
+  controller: ['$http', '$scope', 'searchService', HeaderController]
 });
 
-function HeaderController($http, $scope) {
+function HeaderController($http, $scope, searchService) {
   var self = this;
+  self.filters = {
+    query: '',
+    city: '',
+    type: ''
+  };
+
+  self.clearForm = function() {
+    self.filters.query = '';
+    self.filters.city = '';
+    self.filters.type = '';
+  };
+
+  searchService.search = self.filters;
 
   self.httpRequestHeader = function() {
     $http({
@@ -25,7 +38,7 @@ function HeaderController($http, $scope) {
 
   self.httpRequestHeader();
 
-  
+
   var element = document.getElementById('header_map'),
       map;
 
