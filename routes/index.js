@@ -72,6 +72,9 @@ router
       }
     });
   })
+  .post('/api/items/upload/', function(req, res, next) {
+    console.log(req.body);
+  })
   .post('/api/config/get_settings/', function(req, res, next) {
     if(req.session.current.login) {
       res.status(200).send({isLogined: true, login: req.session.current.login});

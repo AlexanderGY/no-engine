@@ -7,7 +7,9 @@ angular.module('dashboardApp')
 function PublishController($http, $scope, FileUploader) {
   var self = this;
   self.form = {};
-  self.uploader = new FileUploader();
+  self.uploader = new FileUploader({
+    url: '/api/items/upload/'
+  });
   self.uploadFile = function(img) {
     console.log(img);
   };
